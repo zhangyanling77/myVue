@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>myMVVM</title>
+</head>
+<body>
+  <div id="root">
+    <input type="text" v-model='person.name' >
+    <h1>{{message}}</h1>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+    </ul>
+    {{person.age}}
+    <br />
+    <button v-on:click="change">点我</button>
+    <br />
+    {{getNewName}}
+    <div v-html="message"></div>
+  </div>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+  <script src="Vue.js"></script>
+  <script>
+      let vm = new Vue({
+        el: '#root',
+        data: {
+          message: 'she is a bad girl',
+          person: {
+            age: 20,
+            name: 'zhangsan'
+          }
+        },
+        computed: {
+          getNewName() {
+            return this.person.name + 'hahaha'
+          }
+        },
+        methods: {
+          change() {
+            console.log("11111")
+          }
+        }
+        
+      })
+  </script>
+</body>
+</html>
